@@ -3,6 +3,7 @@ package edu.cse;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -24,10 +25,21 @@ public class Main extends Application {
         Label warning = new Label("Please don't click this button");
         warning.setTextFill(Color.DARKRED);
         Button dangerous = new Button("ENTER DEATH ZONE");
-        Label angery = new Label("HOW COULD YOU");
-        angery.setTextFill(Color.WHITE);
-        angery.setScaleX(3);
-        angery.setScaleY(0.75);
+        Label madsad = new Label("HOW COULD YOU");
+        madsad.setTextFill(Color.BLACK);
+        madsad.setScaleX(3);
+        madsad.setScaleY(0.75);
+
+        CheckBox fun = new CheckBox("Because I wanted to see what would happen.");
+        fun.setTextFill(Color.BLACK);
+        CheckBox bad = new CheckBox("Because I hate you.");
+        bad.setTextFill(Color.BLACK);
+
+        VBox angery = new VBox();
+        angery.getChildren().add(madsad);
+        angery.getChildren().add(fun);
+        angery.getChildren().add(bad);
+        angery.setAlignment(Pos.BOTTOM_CENTER);
 
         VBox theBox = new VBox(10, warning, dangerous);
         theBox.setAlignment(Pos.CENTER);
@@ -53,7 +65,6 @@ public class Main extends Application {
         theStage.show();
 
     }
-
 
     public static void main(String[] args) {
         Application.launch(args);
