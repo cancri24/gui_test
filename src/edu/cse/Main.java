@@ -1,5 +1,6 @@
 package edu.cse;
 
+import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -62,8 +63,23 @@ public class Main extends Application {
 
         theStage.setScene(firstScene);
         theStage.setTitle("DANGER ZONE");
-        theStage.show();
 
+        new AnimationTimer() {
+            public void handle(long time) {
+                if(fun.isSelected()) {
+                    theStage.setScene(firstScene);
+                    theStage.setTitle("DANGER ZONE");
+                    fun.fire();
+                }
+                else if(bad.isSelected()) {
+                    theStage.setScene(firstScene);
+                    theStage.setTitle("DANGER ZONE");
+                    bad.fire();
+                }
+            }
+        }.start();
+
+        theStage.show();
     }
 
     public static void main(String[] args) {
